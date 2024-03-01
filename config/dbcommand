@@ -1,0 +1,21 @@
+CREATE TABLE previousill (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL ,
+    asthama TINYINT(1),
+        hypertension TINYINT(1),
+    fibrosis TINYINT(1),
+    obesity TINYINT(1),
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+CREATE TABLE symptoms (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT Not NULL ,
+    symptoms varchar(20),
+    jan varchar(10),feb varchar(10),mar varchar(10)
+ ,apr varchar(10),may varchar(10),june varchar(10),jul varchar(10),
+ aug varchar(10),sep varchar(10),oct varchar(10),nov varchar(10),dece varchar(10),
+   score INT,
+
+    FOREIGN KEY (user_id) REFERENCES user(id)
+);
