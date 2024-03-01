@@ -1,0 +1,66 @@
+<!-- header_open  -->
+<div class="container-fluid">
+
+    <nav class="navbar navbar-expand-lg nav_area">
+
+        <div class="navbar-content">
+            <p class="nav-brand">HealthCare</p>
+            <p class="nav-content">Analytical Tool For Seasonality Prediction</p>
+        </div>
+        <div class="navbar-image">
+            <img class="logo" src="../../../assets/img/flogo.jpg" />
+        </div>
+    </nav>
+</div>
+<mat-sidenav-container>
+    <mat-sidenav mode="side" [(opened)]="opened">
+        <!-- Creating dashboard sidenav-->
+        <div class="main">
+
+            <div class="main-1">
+                <h3>Hello, Admin</h3>
+                <p>{{fullname}}</p>
+                <p>{{email}}</p>
+            </div>
+            <div class="main-2">
+                <mat-nav-list>
+                    <mat-list-item [routerLink]="['/admin/dashboard']" [routerLinkActive]="['active']">
+
+                        <mat-icon [class.active]="selected" matListIcon>home</mat-icon>
+                        <a matLine>Dashboard</a>
+
+                    </mat-list-item>
+
+                    <mat-list-item [routerLink]="['/admin/user-list']" [routerLinkActive]="['active']">
+                        <mat-icon matListIcon>grid_on</mat-icon>
+                        <a matLine>UserList</a>
+                    </mat-list-item>
+
+                    <mat-list-item [routerLink]="['/admin/chart']" [routerLinkActive]="['active']">
+                        <mat-icon matListIcon>pie_chart_outlined</mat-icon>
+                        <a matLine>Chart</a>
+                    </mat-list-item>
+
+
+
+                </mat-nav-list>
+
+            </div>
+        </div>
+        <!-- End dashboard sidenav-->
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button mat-icon-button>
+                <mat-icon (click)="opened = !opened">reorder</mat-icon>
+            </button>
+
+            <button mat-icon-button>
+                <mat-icon class="logout-icon" (click)="logout()">exit_to_app</mat-icon>
+            </button>
+        </mat-toolbar>
+
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -1,0 +1,106 @@
+<div class="content">
+    <div *ngIf="chartStatus" layout="row" fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div class="inner-content" fxFlex="100%" fxFlex.xs="100%" fxFlex.sm="100%">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div layout="row" layout-align="start center">
+                            <span flex>Percentage of Population </span>
+
+                            <span class="triple-dot">
+                                <button mat-icon-button [matMenuTriggerFor]="menu1"
+                                    aria-label="Example icon-button with a menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu1="matMenu">
+                                    <button mat-menu-item (click)="openChart('widget1' , 'line')"> Line </button>
+
+                                    <button mat-menu-item (click)="openChart('widget1', 'bar')"> Bar </button>
+
+                                    <button mat-menu-item (click)="openChart('widget1' , 'pie')"> Pie </button>
+
+                                </mat-menu>
+                            </span>
+                        </div>
+                    </mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="">
+                <mat-card-content>
+                    <div class="position-relative h-500 pb-16 blue-600">
+                        <canvas baseChart height="300px" [datasets]="widget1.datasets" [labels]="widget1.labels"
+                            [colors]="widget1.colors" [options]="widget1.options" [chartType]="widget1.chartType">
+                        </canvas>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="inner-content" fxFlex="65%" fxFlex.xs="100%" fxFlex.sm="100%">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div layout="row" layout-align="start center">
+                            <span flex>Maximum Score of Symptoms</span>
+
+                            <span class="triple-dot">
+                                <button mat-icon-button [matMenuTriggerFor]="menu2"
+                                    aria-label="Example icon-button with a menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu2="matMenu">
+                                    <button mat-menu-item (click)="openChart('widget2' , 'line')"> Line </button>
+
+                                    <button mat-menu-item (click)="openChart('widget2', 'bar')"> Bar </button>
+
+                                    <button mat-menu-item (click)="openChart('widget2' , 'pie')"> Pie </button>
+                                </mat-menu>
+                            </span>
+                        </div>
+                    </mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="">
+                <mat-card-content>
+                    <div class="position-relative h-500 pb-16 blue-600">
+                        <canvas baseChart height="300px" [datasets]="widget2.datasets" [labels]="widget2.labels"
+                            [colors]="widget2.colors" [options]="widget2.options" [chartType]="widget2.chartType">
+                        </canvas>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="inner-content" fxFlex="35%" fxFlex.xs="100%" fxFlex.sm="100%">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div layout="row" layout-align="start center">
+                            <span flex> Male Percentage</span>
+
+                            <span class="triple-dot">
+                                <button mat-icon-button [matMenuTriggerFor]="menu3"
+                                    aria-label="Example icon-button with a menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu3="matMenu">
+                                    <button mat-menu-item (click)="openChart('widget3' , 'line')"> Line </button>
+
+                                    <button mat-menu-item (click)="openChart('widget3', 'bar')"> Bar </button>
+
+                                    <button mat-menu-item (click)="openChart('widget3' , 'pie')"> Pie </button>
+                                </mat-menu>
+                            </span>
+                        </div>
+                    </mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="">
+                <mat-card-content>
+                    <div class="position-relative h-500 pb-16 blue-600">
+                        <canvas baseChart height="300px" [datasets]="widget3.datasets" [labels]="widget3.labels"
+                            [colors]="widget3.colors" [options]="widget3.options" [chartType]="widget3.chartType">
+                        </canvas>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

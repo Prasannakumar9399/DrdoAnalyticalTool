@@ -1,0 +1,8 @@
+mat-dialog-content{
+    position: relative;
+}
+.close-button{
+    position: absolute ;
+    top:0;
+    right: 50px;
+}

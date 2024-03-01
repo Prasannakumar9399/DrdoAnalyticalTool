@@ -1,0 +1,37 @@
+<div class="content">
+    <div *ngIf="chartStatus" layout="row" fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div class="inner-content" fxFlex="35%" fxFlex.xs="100%" fxFlex.sm="100%">
+            <mat-card class="mat-elevation-z4">
+                <mat-card-header>
+                    <mat-card-title>
+                        <div layout="row" layout-align="start center">
+                            <span flex> Female Percentage</span>
+
+                            <span class="triple-dot">
+                                <button mat-icon-button [matMenuTriggerFor]="menu4"
+                                    aria-label="Example icon-button with a menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu4="matMenu">
+                                    <button mat-menu-item (click)="openChart('widget4' , 'line')"> Line </button>
+
+                                    <button mat-menu-item (click)="openChart('widget4', 'bar')"> Bar </button>
+
+                                    <button mat-menu-item (click)="openChart('widget4' , 'pie')"> Pie </button>
+                                </mat-menu>
+                            </span>
+                        </div>
+                    </mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="">
+                <mat-card-content>
+                    <div class="position-relative h-500 pb-16 blue-600">
+                        <canvas baseChart height="300px" [datasets]="widget4.datasets" [labels]="widget4.labels"
+                            [colors]="widget4.colors" [options]="widget4.options" [chartType]="widget4.chartType">
+                        </canvas>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

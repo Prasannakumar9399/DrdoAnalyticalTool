@@ -1,0 +1,261 @@
+<!-- header_open  -->
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg nav_area">
+        <div class="navbar-content">
+            <p class="nav-brand">HealthCare</p>
+            <p class="nav-content">Analytical Tool For Seasonality Prediction</p>
+        </div>
+        <div class="navbar-image">
+            <img class="logo" src="../../../assets/img/flogo.jpg" />
+        </div>
+    </nav>
+</div>
+<!-- header_close -->
+
+<!-- body_open -->
+<form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <!-- below row divide the left and right content of body -->
+    <div class="row">
+        <!-- left_container -->
+        <div class="col-md-5 col-sm-12 col-12 left_cont_div">
+            <div class="left_info_1">
+                <p class="left_info_para">The purpose of this form is to find out self experience of some common health
+                    problems during the year. This
+                    is a method of self health assessment to assess the seasonality and severity of symptoms.</p>
+            </div>
+
+            <div class="left_form_header">
+                <p>Demographic Details</p>
+            </div>
+
+            <div class="left_form_area" style="margin-top: 20px;">
+                <mat-grid-list [cols]="breakpoint" rowHeight="80px" gutterSize="10px"
+                    (window:resize)="onResize($event)">
+                    <mat-grid-tile>
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>Full Name</mat-label>
+                            <input matInput required formControlName="fullName">
+                            <mat-error>
+                                Full name is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>Gender</mat-label>
+                            <mat-select required formControlName="gender">
+                                <mat-option value="M">Male</mat-option>
+                                <mat-option value="F">Female</mat-option>
+                                <mat-option value="O">Others</mat-option>
+                            </mat-select>
+                            <mat-error>
+                                Gender is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>Age</mat-label>
+                            <input matInput required formControlName="age">
+                            <mat-error>
+                                Age is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>Height</mat-label>
+                            <input matInput required formControlName="height" [pattern]="heightPattern"
+                                placeholder="ex :: 5.50">
+                            <mat-hint style="font-size:12px">only in feet
+                                . inch"</mat-hint>
+                            <mat-error *ngIf="surveyForm.get('height').hasError('required')">
+                                Height is required
+                            </mat-error>
+                            <mat-error *ngIf="surveyForm.get('height').hasError('pattern')">
+                                Height Ex:5.50
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>Weight</mat-label>
+                            <input matInput required formControlName="weight" [pattern]="weightPattern"
+                                placeholder="ex :: 50.00">
+                            <mat-hint style="font-size:12px">only in kg</mat-hint>
+                            <mat-error *ngIf="surveyForm.get('weight').hasError('required')">
+                                Weight is required
+                            </mat-error>
+                            <mat-error *ngIf="surveyForm.get('weight').hasError('pattern')">
+                                Only Digit Ex:55.00
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>City</mat-label>
+                            <input matInput required formControlName="city">
+                            <mat-error>
+                                City is required
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>Pin code</mat-label>
+                            <input matInput required formControlName="pinCode" [pattern]="pinPattern">
+                            <mat-error *ngIf="surveyForm.get('pinCode').hasError('required')">
+                                Pincode is required
+                            </mat-error>
+                            <mat-error *ngIf="surveyForm.get('pinCode').hasError('pattern')">
+                                Enter valid PinCode
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>E-mail ID</mat-label>
+                            <input matInput required formControlName="email">
+                            <mat-error *ngIf="surveyForm.get('email').hasError('required')">
+                                Email is required
+                            </mat-error>
+                            <mat-error
+                                *ngIf="!surveyForm.get('email').hasError('required') && surveyForm.get('email').hasError('email')">
+                                Enter a valid email address
+                            </mat-error>
+                        </mat-form-field>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile>
+                        <mat-form-field class="form-field" appearance="outline">
+                            <mat-label>Phone No.</mat-label>
+                            <input matInput formControlName="phone">
+                            <!-- <mat-error *ngIf="surveyForm.get('phone').hasError('required')">
+                                Phone no is required
+                            </mat-error>
+                            <mat-error *ngIf="surveyForm.get('phone').hasError('pattern')">
+                                Enter a valid phone no
+                            </mat-error> -->
+                        </mat-form-field>
+                    </mat-grid-tile>
+                </mat-grid-list>
+
+                <div class="left_form_header">
+                    <p>Previous Medical History</p>
+                </div>
+
+                <div class="left_info_2" style="margin-top: 20px;">
+                    <p class="left_info_para">Have you ever have/had any of the following conditions? (check if "yes")
+                    </p>
+                </div>
+
+                <div class="checkboxes">
+                    <mat-checkbox labelPosition="before" formControlName="prevAshthama">
+                        Asthma
+                    </mat-checkbox>
+
+                    <mat-checkbox labelPosition="before" formControlName="prevHypertension">
+                        Hypertension
+                    </mat-checkbox>
+                    <mat-checkbox labelPosition="before" formControlName="prevFibrosis">
+                        Fibrosis
+                    </mat-checkbox>
+                    <mat-checkbox labelPosition="before" formControlName="prevObesity">
+                        Obesity
+                    </mat-checkbox>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- right_container -->
+        <div class="col-md-7 col-sm-12 col-12 right_cont_div">
+            <div>
+                <p class="right_info_para">Do you experience any of the given health problem during any month in past
+                    1-5 yrs? If yes please select the
+                    symptoms and their severity.</p>
+            </div>
+            <div>
+                <p class="right_info_para_2"> <span class="instruction_span">Instruction :-</span> Please mark the
+                    severity for any of the given health
+                    problems as follow. </p>
+            </div>
+
+            <div class="symptoms">
+                <p>No symptom:0 <br> Mild symptom:1 <br> Moderate symptom:2 <br> Severe symptom:3</p>
+            </div>
+
+            <div class="left_form_header">
+                <p>Symptom Severity Survey</p>
+            </div>
+            <div class="symp-table">
+                <table class="table table-bordered col-sm-12">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th *ngFor="let head of months">{{head}}</th>
+                            <th>Score</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let symptom of symptoms">
+                            <td>{{symptom}}</td>
+                            <td *ngFor="let month of months"><select class="form-control"
+                                    [(ngModel)]="survayData[symptom][month]" [ngModelOptions]="{standalone: true}"
+                                    (change)="onChange($event,symptom)">
+                                    <option value="0">0</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                </select></td>
+                            <td>
+                                <input type="text" readonly class="form-control text-center"
+                                    [(ngModel)]="survayData[symptom]['score']" [ngModelOptions]="{standalone: true}">
+                            </td>
+
+                        </tr>
+                        <tr>
+                            <td style="vertical-align: middle;text-align: end;" colspan="13">Total Score</td>
+                            <td style="width: 80px; padding-top: 10px;">
+                                <input type="text" class="form-control text-center" readonly
+                                    formControlName="total_score">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+    <div class="caution">
+        <div class="caution-1">
+            <p class="caution_note"><u><b>Cautionary Note </b></u> :- No matter what your score is ,always share with
+                your
+                physician for
+                confirmation.</p>
+        </div>
+
+
+    </div>
+
+    <div class="submit-button">
+        <button mat-raised-button [disabled]="surveyForm.invalid">Submit</button>
+    </div>
+</form>
+<div class="admin-login">
+    <a [routerLink]="['/admin/login']">Login as Admin</a>
+</div>
+<!-- body_close -->

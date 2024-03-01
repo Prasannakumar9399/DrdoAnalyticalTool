@@ -1,0 +1,130 @@
+*{
+  list-style: none;
+  text-decoration: none;
+     padding: 0%;
+    margin: 0%; 
+}
+
+.nav_area{
+    width: 100%;
+    background-image: linear-gradient(to right,#444cbd , #e8edea);
+}
+.navbar-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: auto;
+}
+.nav-brand{
+    font-weight: bold;
+    font-size: 28px;
+    margin-top: 10px;
+    font-family: noto;
+}
+.nav-content{
+    color:#525254;
+    font-size: 20px;
+    font-family: Avanta Garde;
+    font-weight: bold;
+}
+.navbar-image{
+    height: 100%;
+}
+.logo{
+    width: 68px;
+    margin-right: 10px;
+    height: 100%;    
+}
+mat-sidenav-container{
+    height:100%;
+    /* color: white; */
+}
+/* mat-sidenav{
+    border: 1px solid red;
+} */
+mat-sidenav-content{
+border: 1px solid green;
+/* padding-left: 20px; */
+    background: #e9eaef
+}
+mat-sidenav-content mat-toolbar{
+    height: 50px;
+    padding:0 32px;
+    /* border:1px solid yellow; */
+}
+mat-sidenav-content mat-toolbar mat-icon{
+    cursor: pointer;
+}
+mat-sidenav{
+        /* background: linear-gradient(#2a1c5a,#4b3a6e); */
+         background-image: linear-gradient(#3c44b9 , #e8edea);
+    width: 243px;
+    position: fixed;
+    color: white;
+
+}
+/* starting dashboard */
+.main-1{
+    /* border: 1px solid green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height:125px;
+    align-items: center;
+    margin-top: 15px;
+}
+.main-1 h3{
+        font-family: auto;
+            color: black;
+    font-size: xx-large;
+}
+.mat-list-item.active{
+  color:black;
+  background-color: #fff;
+}
+.mat-list-item{
+  color:#fff;
+}
+.main-2 mat-nav-list{
+    width: 90%;
+    margin: auto;
+}
+mat-toolbar{
+    display: flex;
+    justify-content: space-between;
+}
+.logout-icon:hover::shadow{
+    color:red
+}
+
+
+@media only screen and (max-width:516px){
+    nav{
+        position: relative;
+    }
+   .navbar-image{
+       position: absolute;
+       top: 0;
+       right: 0;
+   }
+   .nav-content{
+       font-size: 10px;
+   }
+
+
+   .submit-button .mat-raised-button{
+       width:35%;
+   }
+   @media only screen and (max-width:360px){
+    .nav-content{
+        font-size: 7px;
+      
+    }
+}
+   
+}
+
+
+/* ending dashboard */

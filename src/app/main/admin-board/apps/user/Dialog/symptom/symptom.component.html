@@ -1,0 +1,50 @@
+<!-- {{data.symptoms}} -->
+<div class="dialog-container">
+    <h2 mat-dialog-title>Score Table</h2>
+    <button mat-icon-button class="close-button" [mat-dialog-close]="true">
+        <mat-icon class="close-icon" color="warn">close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content>
+    <table>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Symptoms</th>
+                    <th>Jan</th>
+                    <th>Feb</th>
+                    <th>Mar</th>
+                    <th>Apr</th>
+                    <th>May</th>
+                    <th>Jun</th>
+                    <th>Jul</th>
+                    <th>Aug</th>
+                    <th>Sep</th>
+                    <th>Oct</th>
+                    <th>Nov</th>
+                    <th>Dec</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let s of symptoms">
+                    <td>{{s.symptoms}}</td>
+                    <td>{{s.jan}}</td>
+                    <td>{{s.feb}}</td>
+                    <td>{{s.mar}}</td>
+                    <td>{{s.apr}}</td>
+                    <td>{{s.may}}</td>
+                    <td>{{s.june}}</td>
+                    <td>{{s.jul}}</td>
+                    <td>{{s.aug}}</td>
+                    <td>{{s.sep}}</td>
+                    <td>{{s.oct}}</td>
+                    <td>{{s.nov}}</td>
+                    <td>{{s.dece}}</td>
+                    <td>{{s.score}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </table>
+
+</mat-dialog-content>

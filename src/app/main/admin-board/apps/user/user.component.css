@@ -1,0 +1,17 @@
+table{
+    width: 100%;
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+.sort-icon{
+  cursor: pointer;
+}
+.sort-icon :hover{
+  color:black
+}
+.filter{
+  position:absolute;
+  top:0;
+  right:60px;
+}
